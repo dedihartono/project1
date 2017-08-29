@@ -5,8 +5,13 @@ class Pelanggan extends CI_Controller {
 
 	public function __construct()
 	{
-		//load model and add alias
+		
 		parent::__construct();
+		//load model and add alias
+		//check session logged_in
+			$this->load->model('M_pengguna', 'm_pengguna');
+			$this->m_pengguna->check_session();
+
 
 	}
 

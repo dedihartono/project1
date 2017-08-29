@@ -37,7 +37,7 @@
                     <li class="xn-openable-b pull-right">
                         <a href="#">
                             <span class="xn-text">
-                                <?php echo $this->session->userdata("jabatan");?>
+                                <?php echo $this->session->userdata("nama_lengkap");?>
                             </span>
                             <span class="fa fa-sign-out"></span>
                         </a>
@@ -60,7 +60,7 @@
                 <!-- END BREADCRUMB -->
 
                 <!-- PAGE CONTENT WRAPPER -->
-                <?php $this->load->view($konten) ;?> 
+                <?php $this->load->view($konten) ;?>
                 <!-- END PAGE CONTENT WRAPPER -->
             </div>
             <!-- END PAGE CONTENT -->
