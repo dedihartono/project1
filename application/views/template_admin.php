@@ -96,13 +96,32 @@
         <script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins/moment.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins/daterangepicker/daterangepicker.js"></script>
         <!-- END THIS PAGE PLUGINS-->
+        <!-- DATATABLES -->
+        <script type='text/javascript' src='<?php echo base_url();?>assets/js/plugins/icheck/icheck.min.js'></script>
+        <script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+
+        <script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
 
         <!-- START TEMPLATE -->
 
         <script type="text/javascript" src="<?php echo base_url();?>assets/js/plugins.js"></script>
         <script type="text/javascript" src="<?php echo base_url();?>assets/js/actions.js"></script>
+        <script>
 
+          function hapus() {
+
+            var conf=confirm("Apakah data ini ingin dihapus ?");
+
+              if (conf==true) {
+                return true;
+              } else {
+                return false;
+              }
+
+          }
+        </script>
         <?php echo $this->session->flashdata("pesan"); ?>
+
 
         <!-- END TEMPLATE -->
     <!-- END SCRIPTS -->

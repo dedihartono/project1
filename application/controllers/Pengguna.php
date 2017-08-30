@@ -16,8 +16,9 @@ class Pengguna extends CI_Controller {
 
 
 	public function index() {
-
-		$this->load->view('pengguna/v_pengguna');
+		$data['pengguna'] = $this->m_pengguna->tampil_pengguna();
+		$data['konten'] = 'pengguna/v_pengguna';
+		$this->load->view('template_admin', $data);
 
 	}
 

@@ -18,12 +18,18 @@ class M_pengguna extends CI_Model {
 
 	}
 
+	public function tampil_pengguna() {
+		$query = $this->db->get('tb_pengguna');
+
+			return $query->result();
+	}
+
 	public function check_login() {
 
 		$data = array(
 				'username' => $this->input->post('username', TRUE),
 				'password' => $this->input->post('password', TRUE),
-				);
+			);
 
 		$hasil = $this->get_pengguna($data);
 		if ( $hasil->num_rows() == 1 ) {

@@ -5,13 +5,16 @@
                         <?php echo anchor('',' ', array('class'=>'x-navigation-control'));?>
 
                     </li>
+
                     <li class="xn-profile">
                         <a href="#" class="profile-mini">
-                            <img src="<?php echo base_url();?>assets/uploads/admin.jpg" alt="Milawati Dewi"/>
+                            <img src="<?php echo base_url();?>assets/uploads/<?php echo $this->session->userdata('gambar');?>"
+                              alt="<?php echo $this->session->userdata('gambar');?>"/>
                         </a>
                         <div class="profile">
                             <div class="profile-image">
-                                <img src="<?php echo base_url();?>assets/uploads/admin.jpg" alt="Milawati Dewi"/>
+                                <img src="<?php echo base_url();?>assets/uploads/<?php echo $this->session->userdata('gambar');?>"
+                                  alt="<?php echo $this->session->userdata('gambar');?>"/>
                             </div>
                             <div class="profile-data">
                                 <div class="profile-data-name">
@@ -35,7 +38,7 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-users"></span> <span class="xn-text">Data Master</span></a>
                         <ul>
-                            <li><a href="#"><span class="fa fa-file"></span> Kelola Unit Lokasi</a></li>
+                            <li><a href="<?php echo base_url();?>pelanggan/lokasi_unit"><span class="fa fa-file"></span> Kelola Unit Lokasi</a></li>
                             <li><a href="#"><span class="fa fa-file"></span> Kelola Pelanggan</a></li>
                         </ul>
                     </li>
@@ -52,7 +55,7 @@
                         </ul>
                     </li>
                     <li class="">
-                        <a href="#"><span class="fa fa-users"></span> <span class="xn-text">Kelola Pengguna</span></a>
+                        <a href="<?php echo base_url();?>pengguna"><span class="fa fa-users"></span> <span class="xn-text">Kelola Pengguna</span></a>
                     </li>
                 </ul>
                 <!-- END X-NAVIGATION -->
