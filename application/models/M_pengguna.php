@@ -24,7 +24,7 @@ class M_pengguna extends CI_Model {
 			return $query->result();
 	}
 
-	public function check_login() {
+	public function check_pengguna() {
 
 		$data = array(
 				'username' => $this->input->post('username', TRUE),

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pengguna extends CI_Controller {
+class Kelola_pengguna extends CI_Controller {
 
 	public function __construct()
 	{
@@ -9,7 +9,7 @@ class Pengguna extends CI_Controller {
 
 		//load model and add alias
 		//check session logged_in
-			$this->load->model('M_pengguna', 'm_pengguna');
+			$this->load->model('m_pengguna');
 			$this->m_pengguna->check_session();
 
 	}

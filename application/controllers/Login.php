@@ -8,7 +8,7 @@ class Login extends CI_Controller {
 		//load model and add alias
 		parent::__construct();
 
-			$this->load->model('M_pengguna', 'm_pengguna');
+			$this->load->model('m_pengguna');
 
 	}
 
@@ -21,7 +21,7 @@ class Login extends CI_Controller {
 
 	public function check_login() {
 
-		 $this->m_pengguna->check_login();
+		 $this->m_pengguna->check_pengguna();
 
 	}
 
@@ -30,5 +30,5 @@ class Login extends CI_Controller {
 		$this->session->sess_destroy();
 			redirect('login');
 	}
-	
+
 }
