@@ -22,28 +22,5 @@ class Kelola_pengguna extends CI_Controller {
 
 	}
 
-  public function tambah_pengguna() {
-
-    $data['konten'] = 'pengguna/v_tambah_pengguna';
-
-    $this->load->view('template_admin', $data);
-
-  }
-
-  public function proses_tambah() {
-
-  }
-
-  public function edit_pengguna() {
-    $this->load->view('pengguna/v_edit_pengguna');
-  }
-
-  public function proses_edit() {
-
-  }
-
-  public function hapus_pengguna() {
-
-  }
-
+  
 }

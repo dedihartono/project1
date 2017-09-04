@@ -12,29 +12,21 @@ class Kelola_lokasi_unit extends CI_Controller {
 			$this->load->model('m_pengguna');
 			$this->m_pengguna->check_session();
 
-			$this->load->model('m_pelanggan');
+			$this->load->model('m_lokasi_unit');
 
-
-	}
-
-
-	public function index()
-	{
-
-		$this->load->view('login/v_login');
 
 	}
 
 	public function lokasi_unit()
 	{
-		$data['lokunit'] = $this->m_pelanggan->read_lokunit();
-		$data['konten'] = 'pelanggan/v_lokasi_unit';
+		$data['lokunit'] = $this->m_lokasi_unit->lihat_data_lokunit();
+		$data['konten'] = 'kelola_lokunit/v_lokasi_unit';
 		$this->load->view('template_admin', $data);
 	}
 
 	public function tambah_lokunit()
 	{
-		$data['konten'] = 'pelanggan/v_tambah_lokasiunit';
+		$data['konten'] = 'kelola_lokunit/v_tambah_lokasiunit';
 		$this->load->view('template_admin', $data);
 	}
 
@@ -44,17 +36,17 @@ class Kelola_lokasi_unit extends CI_Controller {
 			"kode_lokasi" => $this->input->post('kode_lokasi'),
 			"lokasi_unit" => $this->input->post('lokasi_unit'),
 		);
-		$this->m_pelanggan->tambah_data_lokunit($data);
+		$this->m_lokasi_unit->tambah_data_lokunit($data);
 		$alert	= "<script>alert('Data berhasil disimpan')</script>";
 		$this->session->set_flashdata("pesan", $alert);
-		redirect('pelanggan/lokasi_unit');
+		redirect('kelola_lokasi_unit/lokasi_unit');
 	}
 
 	public function edit_lokunit($id)
 	{
 		$id = $this->uri->segment(3);
-		$data['lokunit'] 	= $this->m_pelanggan->lihat_data_by($id);
-		$data['konten'] 	= 'pelanggan/v_edit_lokasiunit';
+		$data['lokunit'] 	= $this->m_lokasi_unit->lihat_data_by($id);
+		$data['konten'] 	= 'kelola_lokunit/v_edit_lokasiunit';
 		$this->load->view('template_admin', $data);
 	}
 
@@ -64,19 +56,19 @@ class Kelola_lokasi_unit extends CI_Controller {
 		$data = array(
 			"lokasi_unit" => $this->input->post('lokasi_unit'),
 		);
-		$this->m_pelanggan->edit_data_lokunit($data, $id);
+		$this->m_lokasi_unit->edit_data_lokunit($data, $id);
 		$alert	= "<script>alert('Data berhasil diubah')</script>";
 		$this->session->set_flashdata("pesan", $alert);
-		redirect('pelanggan/lokasi_unit');
+		redirect('kelola_lokasi_unit/lokasi_unit');
 	}
 
 	public function hapus_lokunit($id)
 	{
 		$id = $this->uri->segment(3);
-		$this->m_pelanggan->hapus_data_lokunit($id);
+		$this->m_lokasi_unit->hapus_data_lokunit($id);
 		$alert	= "<script>alert('Data berhasil dihapus')</script>";
 		$this->session->set_flashdata("pesan", $alert);
-		redirect('pelanggan/lokasi_unit');
+		redirect('kelola_lokasi_unit/lokasi_unit');
 	}
 
 }

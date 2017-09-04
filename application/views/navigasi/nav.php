@@ -38,7 +38,7 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-users"></span> <span class="xn-text">Data Master</span></a>
                         <ul>
-                            <li><a href="<?php echo base_url();?>pelanggan/lokasi_unit"><span class="fa fa-file"></span> Kelola Unit Lokasi</a></li>
+                            <li><a href="<?php echo base_url();?>kelola_lokunit/lokasi_unit"><span class="fa fa-file"></span> Kelola Unit Lokasi</a></li>
                             <li><a href="#"><span class="fa fa-file"></span> Kelola Pelanggan</a></li>
                         </ul>
                     </li>
