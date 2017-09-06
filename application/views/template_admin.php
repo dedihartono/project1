@@ -33,7 +33,7 @@
                         <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
                     </li>
                     <!-- END TOGGLE NAVIGATION -->
-
+                    <!---->
                     <li class="xn-openable-b pull-right">
                         <a href="#">
                             <span class="xn-text">
@@ -48,16 +48,9 @@
                                 </li>
                             </ul>
                     </li>
-
+                    <!---->
                 </ul>
                 <!-- END X-NAVIGATION VERTICAL -->
-
-                <!-- START BREADCRUMB -->
-                <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                    <li class="active">Dashboard</li>
-                </ul>
-                <!-- END BREADCRUMB -->
 
                 <!-- PAGE CONTENT WRAPPER -->
                 <?php $this->load->view($konten) ;?>

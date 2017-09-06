@@ -38,8 +38,8 @@
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-users"></span> <span class="xn-text">Data Master</span></a>
                         <ul>
-                            <li><a href="<?php echo base_url();?>kelola_lokunit/lokasi_unit"><span class="fa fa-file"></span> Kelola Unit Lokasi</a></li>
-                            <li><a href="#"><span class="fa fa-file"></span> Kelola Pelanggan</a></li>
+                            <li><a href="<?php echo base_url();?>kelola_lokasi_unit/lokasi_unit"><span class="fa fa-file"></span> Kelola Unit Lokasi</a></li>
+                            <li><a href="<?php echo base_url();?>Kelola_pelanggan/pelanggan"><span class="fa fa-file"></span> Kelola Pelanggan</a></li>
                         </ul>
                     </li>
                     <li class="xn-openable">
@@ -55,7 +55,7 @@
                         </ul>
                     </li>
                     <li class="">
-                        <a href="<?php echo base_url();?>pengguna"><span class="fa fa-users"></span> <span class="xn-text">Kelola Pengguna</span></a>
+                        <a href="<?php echo base_url();?>pengguna"><span class="fa fa-user"></span> <span class="xn-text">Kelola Pengguna</span></a>
                     </li>
                 </ul>
                 <!-- END X-NAVIGATION -->

@@ -40,5 +40,4 @@ class M_lokasi_unit extends CI_Model {
 		$this->db->delete('tb_lokasi_unit');
 	}
 
-
 }
