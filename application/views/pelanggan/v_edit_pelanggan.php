@@ -9,9 +9,13 @@
 <div class="page-content-wrap">
     <div class="row">
         <div class="col-md-12">
-          <div class="block">
-            <?php var_dump($pelanggan) ;?>
-            <h4>Edit Lokasi Unit</h4>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="">
+                <h3 class="panel-title"><?php echo $panel_title;?></h3>
+              </div>
+            </div>
+            <div class="panel-body">
               <form class="form-horizontal" role="form" action="<?php echo base_url();?>pelanggan/edit_lokunit_proses/<?php echo $this->uri->segment(3) ;?>" method="post">
                   <div class="form-group">
 
@@ -31,7 +35,8 @@
                       </div>
                   </div>
               </form>
+            </div>
           </div>
-        </div>
-    </div>
+      </div>
+  </div>
 </div>

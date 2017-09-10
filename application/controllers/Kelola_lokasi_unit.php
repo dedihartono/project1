@@ -14,19 +14,29 @@ class Kelola_lokasi_unit extends CI_Controller {
 
 			$this->load->model('m_lokasi_unit');
 
-
 	}
 
 	public function lokasi_unit()
 	{
+		$data = array(
+			'breadcrumb_1' 	=> 'Kelola Lokasi Unit',
+			'breadcrumb_2' 	=> anchor('kelola_lokasi_unit/lokasi_unit', 'Lokasi Unit'),
+			'panel_title' 	=> 'Lihat Data Lokasi Unit',
+		);
 		$data['lokunit'] = $this->m_lokasi_unit->lihat_data_lokunit();
-		$data['konten'] = 'kelola_lokunit/v_lokasi_unit';
+		$data['konten'] = 'lokasi_unit/v_lokasi_unit';
 		$this->load->view('template_admin', $data);
 	}
-
+	
 	public function tambah_lokunit()
 	{
-		$data['konten'] = 'kelola_lokunit/v_tambah_lokasiunit';
+		$data = array(
+			'breadcrumb_1' 	=> 'Kelola Lokasi Unit',
+			'breadcrumb_2' 	=> anchor('kelola_lokasi_unit/lokasi_unit', 'Lokasi Unit'),
+			'breadcrumb_3' 	=> anchor('kelola_lokasi_unit/tambah_lokunit', 'Tambah Lokasi Unit'),
+			'panel_title' 	=> 'Tambah Data Lokasi Unit',
+		);
+		$data['konten'] = 'lokasi_unit/v_tambah_lokasiunit';
 		$this->load->view('template_admin', $data);
 	}
 
@@ -44,9 +54,15 @@ class Kelola_lokasi_unit extends CI_Controller {
 
 	public function edit_lokunit($id)
 	{
+		$data = array(
+			'breadcrumb_1' 	=> 'Kelola Lokasi Unit',
+			'breadcrumb_2' 	=> anchor('kelola_lokasi_unit/lokasi_unit', 'Lokasi Unit'),
+			'breadcrumb_3' 	=> anchor('kelola_lokasi_unit/edit_lokunit/'.$id, 'Edit Lokasi Unit'),
+			'panel_title' 	=> 'Tambah Data Lokasi Unit',
+		);
 		$id = $this->uri->segment(3);
 		$data['lokunit'] 	= $this->m_lokasi_unit->lihat_data_by($id);
-		$data['konten'] 	= 'kelola_lokunit/v_edit_lokasiunit';
+		$data['konten'] 	= 'lokasi_unit/v_edit_lokasiunit';
 		$this->load->view('template_admin', $data);
 	}
 

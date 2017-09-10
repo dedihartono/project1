@@ -18,17 +18,11 @@ class M_pengguna extends CI_Model {
 
 	}
 
-	public function tampil_pengguna() {
-		$query = $this->db->get('tb_pengguna');
-
-			return $query->result();
-	}
-
 	public function check_pengguna() {
 
 		$data = array(
 				'username' => $this->input->post('username', TRUE),
-				'password' => $this->input->post('password', TRUE),
+				'password' => md5($this->input->post('password', TRUE)),
 			);
 
 		$hasil = $this->get_pengguna($data);
@@ -113,6 +107,37 @@ class M_pengguna extends CI_Model {
 			redirect('login');
 		}
 
+	}
+
+	//kelola pengguna
+	public function lihat_data_pengguna() {
+		$query = $this->db->get('tb_pengguna');
+		return $query->result();
+	}
+
+	public function tambah_data_pengguna($data)
+	{
+		$this->db->insert('tb_pengguna', $data);
+	}
+
+	public function lihat_data_by($id)
+	{
+		$this->db->where('id_pengguna', $id);
+		$query = $this->db->get('tb_pengguna');
+
+		return $query->row();
+	}
+
+	public function edit_data_pengguna($data, $id)
+	{
+		$this->db->where('id_pengguna', $id);
+		$this->db->update('tb_pengguna', $data);
+	}
+
+	public function hapus_data_pengguna($id)
+	{
+		$this->db->where('id_pengguna', $id);
+		$this->db->delete('tb_pengguna');
 	}
 
 }

@@ -1,3 +1,10 @@
+<!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+    <li><a href="#"><?php echo $breadcrumb_1 ;?></a></li>
+    <li class="active"><?php echo $breadcrumb_2 ;?></li>
+</ul>
+<!-- END BREADCRUMB -->
+
 <div class="page-content-wrap">
     <div class="row">
         <div class="col-md-12">
@@ -5,7 +12,7 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <div class="">
-                <h3 class="panel-title">Data Lokasi Unit</h3>
+                <h3 class="panel-title"><?php echo $panel_title;?></h3>
               </div>
             </div>
             <div class="panel-heading">
@@ -29,8 +36,8 @@
                       <td><?php echo $row->kode_lokasi;?></td>
                       <td><?php echo $row->lokasi_unit;?></td>
                       <td>
-                        <a class="btn btn-danger" onclick="hapus()" href="<?php echo base_url();?>kelola_lokasi_unit/hapus_lokunit/<?php echo $row->kode_lokasi ;?>"><span><i class="fa fa-trash-o"></i></span> HAPUS</a>
                         <a class="btn btn-success" href="<?php echo base_url();?>kelola_lokasi_unit/edit_lokunit/<?php echo $row->kode_lokasi ;?>"><span><i class="fa fa-pencil"></i></span> EDIT</a>
+                        <a class="btn btn-danger" onclick="return hapus()" href="<?php echo base_url();?>kelola_lokasi_unit/hapus_lokunit/<?php echo $row->kode_lokasi ;?>"><span><i class="fa fa-trash-o"></i></span> HAPUS</a>
                       </td>
                     </tr>
                   <?php } ;?>

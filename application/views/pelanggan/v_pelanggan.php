@@ -16,7 +16,7 @@
               </div>
             </div>
             <div class="panel-heading">
-              <a class="btn btn-primary" href="<?php echo base_url();?>pelanggan/tambah_lokunit"><span><i class="fa fa-plus"></i></span> Tambah</a>
+              <a class="btn btn-primary" href="<?php echo base_url();?>kelola_pelanggan/tambah_pelanggan"><span><i class="fa fa-plus"></i></span> Tambah</a>
             </div>
             <div class="panel-body">
               <table class="table datatable">
@@ -36,9 +36,9 @@
                       <td><?php echo $row->nama_pelanggan;?></td>
                       <td><?php echo $row->alamat;?></td>
                       <td>
-                        <a class="btn btn-warning" href="<?php echo base_url();?>kelola_pelanggan/detail_pelanggan/<?php echo md5($row->id_pelanggan) ;?>"><span><i class="fa fa-eye"></i></span> DETAIL</a>
-                        <a class="btn btn-success" href="<?php echo base_url();?>kelola_pelanggan/edit_pelanggan/<?php echo md5($row->id_pelanggan) ;?>"><span><i class="fa fa-pencil"></i></span> EDIT</a>
-                        <a class="btn btn-danger" onclick="hapus()" href="<?php echo base_url();?>kelola_pelanggan/hapus_pelanggan/<?php echo md5($row->id_pelanggan) ;?>"><span><i class="fa fa-trash-o"></i></span> HAPUS</a>
+                        <a class="btn btn-warning" href="<?php echo base_url();?>kelola_pelanggan/pelanggan_detil/<?php echo $row->id_pelanggan ;?>"><span><i class="fa fa-eye"></i></span> DETAIL</a>
+                        <a class="btn btn-success" href="<?php echo base_url();?>kelola_pelanggan/edit_pelanggan/<?php echo $row->id_pelanggan ;?>"><span><i class="fa fa-pencil"></i></span> EDIT</a>
+                        <a class="btn btn-danger" onclick="hapus()" href="<?php echo base_url();?>kelola_pelanggan/hapus_pelanggan/<?php echo $row->id_pelanggan ;?>"><span><i class="fa fa-trash-o"></i></span> HAPUS</a>
                       </td>
                     </tr>
                   <?php } ;?>
