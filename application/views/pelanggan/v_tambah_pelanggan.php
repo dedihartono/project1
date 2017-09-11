@@ -42,16 +42,6 @@
                           <input class="form-control" type="text" name="pekerjaan" placeholder="Pekerjaan">
                         </div>
                       </div>
-                      <div class="form-group">
-                        <div class="col-md-9">
-                          <label class="control-label">Lokasi Unit</label>
-                          <select class="form-control" name="lokasi_unit">
-                            <?php foreach ($lokasi_unit as $row) { ?>
-                              <option value="<?php echo $row->kode_lokasi;?>"><?php echo $row->lokasi_unit;?></option>
-                            <?php } ;?>
-                          </select>
-                        </div>
-                      </div>
                     </div>
 
 

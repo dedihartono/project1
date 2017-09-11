@@ -12,7 +12,12 @@ class M_pelanggan extends CI_Model {
 
 	public function lihat_data_pelanggan() {
 
-		$query = $this->db->get('tb_pelanggan');
+		$this->db->select('pl.id_pelanggan, pl.nama_pelanggan, pd.alamat');
+		$this->db->from('tb_pelanggan AS pl');
+		$this->db->from('tb_pelanggan_detail AS pd');
+		$this->db->join('tb_pelanggan_detail', 'pl.id_pelanggan = pd.id_pelanggan', 'LEFT');
+
+		$query = $this->db->get();
 
 			return $query->result();
 
@@ -21,6 +26,8 @@ class M_pelanggan extends CI_Model {
 	public function tambah_data_pelanggan($data)
 	{
 		$this->db->insert('tb_pelanggan', $data);
+
+			return $this->db->insert_id(); //return lastid
 	}
 
 	public function lihat_data_by($id)
@@ -33,39 +40,36 @@ class M_pelanggan extends CI_Model {
 
 	public function lihat_data_detail($id)
 	{
+		$this->db->select('pl.`id_pelanggan`, pl.`nama_pelanggan`,
+				pd.`telepon`, pd.`alamat`, pd.`pekerjaan`, pd.`alamat`, pd.`jumlah_Penghuni`, pd.`luas_tanah`, pd.`luas_bangunan`,
+				pr.`peruntukan`, sr.`status_rumah`, jb.`jenis_bangunan`,
+				wm.`kode_asset`, wm.`merk`, wm.`no_body`, wm.`no_smb`, wm.`type`, wm.`ukuran`, wm.`lat`, wm.`long`,
+				lu.`lokasi_unit`,
+				st.`status`,
+				kd.`kondisi`');
+				$this->db->from('tb_pelanggan AS pl');
+				$this->db->from('tb_pelanggan_detail AS pd');
+				$this->db->from('tb_jenis_bangunan AS jb');
+				$this->db->from('tb_status_rumah AS sr');
+				$this->db->from('tb_peruntukan AS pr');
+				$this->db->from('tb_water_meter AS wm');
+				$this->db->from('tb_lokasi_unit AS lu');
+				$this->db->from('tb_status AS st');
+				$this->db->from('tb_kondisi AS kd');
 
-		$query = $this->db->query("SELECT
-			pl.`id_pelanggan`, pl.`nama_pelanggan`, pl.`alamat`,
-			pd.`id_pel_detail`, pd.`jumlah_Penghuni`, pd.`luas_bangunan`, pd.`luas_bangunan`, pd.`luas_tanah`, pd.`pekerjaan`, pd.`telepon`,
-			jb.`jenis_bangunan`, sr.`status_rumah`, pr.`peruntukan`,
-			wm.`id_water_meter`,wm.`kode_asset`, wm.`merk`, wm.`no_body`, wm.`no_smb`, wm.`type`, wm.`ukuran`,
-			wm.`long`, wm.`lat`,
-			ko.`kondisi`,
-			st.`status`
+				$this->db->join('tb_pelanggan_detail', 'pl.`id_pelanggan` = pd.`id_pelanggan`', 'LEFT');
+				$this->db->join('tb_jenis_bangunan', 'pd.`id_jenis_bangunan` = jb.`id_jenis_bangunan`', 'LEFT');
+				$this->db->join('tb_status_rumah', 'pd.`id_status_rumah` = sr.`id_status_rumah`', 'LEFT');
+				$this->db->join('tb_peruntukan', 'pd.`id_peruntukan` = pr.`id_peruntukan`', 'LEFT');
+				$this->db->join('tb_water_meter', 'pl.`id_pelanggan` = wm.`id_pelanggan`', 'LEFT');
+				$this->db->join('tb_lokasi_unit', 'wm.`kode_lokasi` = lu.`kode_lokasi`', 'LEFT');
+				$this->db->join('tb_status', 'wm.`id_status` = st.`id_status`', 'LEFT');
+				$this->db->join('tb_kondisi', 'wm.`id_kondisi` = kd.`id_kondisi`', 'LEFT');
 
-			FROM tb_pelanggan AS pl LEFT JOIN tb_pelanggan_detail AS pd
+				$this->db->where('pl.`id_pelanggan`', $id);
 
-			ON pl.`id_pel_detail` = pd.`id_pel_detail`
-
-			LEFT JOIN tb_jenis_bangunan AS jb
-
-			ON pd.`id_jenis_bangunan` = jb.`id_jenis_bangunan`
-
-			LEFT JOIN tb_status_rumah AS sr
-
-			ON pd.`id_status_rumah` = sr.`id_status_rumah`
-
-			LEFT JOIN tb_peruntukan AS pr ON pd.`id_peruntukan` = pr.`id_peruntukan`
-
-			LEFT JOIN tb_water_meter AS wm ON pl.`id_water_meter` = wm.`id_water_meter`
-
-			LEFT JOIN tb_status AS st ON wm.`id_status` = st.`id_status`
-
-			LEFT JOIN tb_kondisi AS ko ON wm.`id_kondisi` = ko.`id_kondisi`
-
-			WHERE pl.`id_pelanggan`= $id");
-
-						return $query->result();
+		$query = $this->db->get();
+						return $query->row();
 	}
 
 	public function edit_data_pelanggan($data, $id)
@@ -111,14 +115,11 @@ class M_pelanggan extends CI_Model {
 	public function tambah_detail_pelanggan($data)
 	{
 		$this->db->insert('tb_pelanggan_detail', $data);
-
-			return $this->db->insert_id(); // return last insert id
 	}
 
 	public function tambah_water_meter($data)
 	{
 		$this->db->insert('tb_water_meter', $data);
-			return $this->db->insert_id(); // return last insert id
 	}
 
 }

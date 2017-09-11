@@ -16,17 +16,17 @@
               </div>
             </div>
             <div class="panel-body">
-              <form class="form-horizontal" role="form" action="<?php echo base_url();?>pelanggan/edit_lokunit_proses/<?php echo $this->uri->segment(3) ;?>" method="post">
+              <form class="form-horizontal" role="form" action="<?php echo base_url();?>kelola_pelanggan/edit_pelanggan_proses/<?php echo $this->uri->segment(3) ;?>" method="post">
                   <div class="form-group">
-
+                      <label class="col-md-2 control-label">Pelanggan</label>
                       <div class="col-md-10">
-                          <input type="hidden" class="form-control" value="<?php  ;?>" name="kode_lokasi" placeholder="kode lokasi"/>
+                          <input type="text" class="form-control" value="<?php echo $pelanggan->nama_pelanggan ;?>" name="nama_pelanggan" placeholder="Nama Pelanggan"/>
                       </div>
                   </div>
                   <div class="form-group">
-                      <label class="col-md-2 control-label">Nama Lokasi</label>
+                      <label class="col-md-2 control-label">Alamat</label>
                       <div class="col-md-10">
-                          <input type="text" class="form-control" value="<?php  ;?>" name="lokasi_unit" placeholder="lokasi unit"/>
+                        <textarea class="form-control" name="alamat"><?php echo $pelanggan->alamat ;?></textarea>
                       </div>
                   </div>
                   <div class="form-group">
@@ -40,3 +40,4 @@
       </div>
   </div>
 </div>
+    
