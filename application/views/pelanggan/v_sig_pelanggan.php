@@ -1,12 +1,11 @@
+<?php echo $map['js'] ;?>
 
 <!-- START BREADCRUMB -->
 <ul class="breadcrumb">
-    <li><a href="#"></a></li>
-    <li class="active"></li>
+    <li><a href="#"><?php echo $breadcrumb_1 ;?></a></li>
+    <li class="active"><?php echo $breadcrumb_2 ;?></li>
 </ul>
 <!-- END BREADCRUMB -->
-<?php echo $map['js'] ;?>
-
 
 <div class="page-content-wrap">
   <div class="row">

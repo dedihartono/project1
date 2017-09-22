@@ -24,6 +24,8 @@
                   <tr>
                     <th width="5%">No</th>
                     <th>Nama Pelanggan</th>
+                    <th>Pekerjaan</th>
+                    <th>Telephone</th>
                     <th>Alamat</th>
                     <th width="27%">Aksi</th>
                   </tr>
@@ -34,9 +36,11 @@
                     <tr>
                       <td><?php echo $no++;?></td>
                       <td><?php echo $row->nama_pelanggan;?></td>
+                      <td><?php echo $row->pekerjaan;?></td>
+                      <td><?php echo $row->telepon;?></td>
                       <td><?php echo $row->alamat;?></td>
                       <td>
-                        <a class="btn btn-warning" href="<?php echo base_url();?>kelola_pelanggan/pelanggan_detil/<?php echo $row->id_pelanggan ;?>"><span><i class="fa fa-eye"></i></span> DETAIL</a>
+                        <a class="btn btn-info" href="<?php echo base_url();?>kelola_pelanggan/pelanggan_detail/<?php echo $row->id_pelanggan ;?>"><span><i class="fa fa-eye"></i></span> DETAIL</a>
                         <a class="btn btn-success" href="<?php echo base_url();?>kelola_pelanggan/edit_pelanggan/<?php echo $row->id_pelanggan ;?>"><span><i class="fa fa-pencil"></i></span> EDIT</a>
                         <a class="btn btn-danger" onclick="hapus()" href="<?php echo base_url();?>kelola_pelanggan/hapus_pelanggan/<?php echo $row->id_pelanggan ;?>"><span><i class="fa fa-trash-o"></i></span> HAPUS</a>
                       </td>

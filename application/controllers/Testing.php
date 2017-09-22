@@ -14,20 +14,7 @@ class Testing extends CI_Controller {
 
 	public function index()
 	{
-    $this->load->library('googlemaps');
-
-    $config['center'] = '-6.567, 107.77';
-    $config['zoom'] = '15';
-		$config['onclick'] = 'createMarker_map({ map: map, position:event.latLng });';
-    $this->googlemaps->initialize($config);
-
-    $marker = array();
-    $marker['position'] = '-6.567, 107.77';
-    $this->googlemaps->add_marker($marker);
-    $data['map'] = $this->googlemaps->create_map();
-
-		$data['konten']='v_testing';
-    $this->load->view('template_admin', $data);
+    $this->load->view('v_testing');
 	}
 
 }
