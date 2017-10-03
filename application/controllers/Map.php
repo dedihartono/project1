@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Testing extends CI_Controller {
+class Map extends CI_Controller {
 
 	public function __construct()
 	{
@@ -14,7 +14,8 @@ class Testing extends CI_Controller {
 
 	public function index()
 	{
-    $this->load->view('v_testing');
+		$data['konten'] = 'simple_map';
+		$this->load->view('template_admin', $data);
 	}
 
 }

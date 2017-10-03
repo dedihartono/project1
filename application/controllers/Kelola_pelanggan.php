@@ -226,11 +226,6 @@ class Kelola_pelanggan extends CI_Controller {
 
 		$id = $this->uri->segment(3);
 
-		$config['center'] 	= '-6.4814031, 107.7957904';
-		$config['zoom']			= '13';
-		$config['onclick'] = 'alert(\'You just clicked at: \' + event.latLng.lat() + \', \' + event.latLng.lng());';
-
-		$this->googlemaps->initialize($config);
 
 
 		$pelanggan = $this->m_water_meter->get_wm_koordinat($id);
@@ -250,6 +245,11 @@ class Kelola_pelanggan extends CI_Controller {
 			$marker['icon'] = base_url('assets/img/icons/restaurant_mexican.png');
 			$this->googlemaps->add_marker($marker);
 		}
+
+		$config['center'] 	= "$lat , $lng";
+		$config['zoom']			= '15';
+
+		$this->googlemaps->initialize($config);
 
 		$data['map'] 				= $this->googlemaps->create_map();
 		$data['pelanggan'] 	= $this->m_water_meter->water_meter_by($id);

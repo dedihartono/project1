@@ -1,4 +1,3 @@
-<?php var_dump($pelanggan); ?>
 <script type="text/javascript">
 		function updateDatabase(newLat, newLng)
 		{
@@ -8,10 +7,10 @@
 
 
 			$.post(
-				"<?php echo base_url();?>kelola_pelanggan/edit_koordinat_proses/",
-				{ 'newLat': newLat,
-					'newLng': newLng,
-					'id': '<?php echo $pelanggan->id_water_meter;?>'
+				"<?php echo base_url();?>kelola_pelanggan/edit_koordinat_proses/<?php echo $pelanggan->id_water_meter;?>",
+				{
+					'lat': newLat,
+					'long': newLng,
 				}
 			)
 			.done(function(data) {
@@ -19,9 +18,10 @@
 	      var long = newLng;
 	          $('#lat').val(lat);
 	          $('#long').val(long);
-				alert("Database updated");
+				alert("Data berhasil diubah!");
 			});
 		}
+
 
 </script>
 
