@@ -16,7 +16,7 @@ class Kelola_pelanggan extends CI_Controller {
 			$this->load->library('googlemaps');
 	}
 
-	public function pelanggan()
+	public function lihat_pelanggan()
 	{
 
 		$data = array(
@@ -78,7 +78,7 @@ class Kelola_pelanggan extends CI_Controller {
 
 		$alert	= "<script>alert('Data berhasil disimpan')</script>";
 		$this->session->set_flashdata("pesan", $alert);
-		redirect('kelola_pelanggan/pelanggan');
+		redirect('kelola_pelanggan/lihat_pelanggan');
 	}
 
 	public function edit_pelanggan($id)
@@ -123,7 +123,7 @@ class Kelola_pelanggan extends CI_Controller {
 
 		$alert	= "<script>alert('Data berhasil diubah')</script>";
 		$this->session->set_flashdata("pesan", $alert);
-		redirect('kelola_pelanggan/pelanggan');
+		redirect('kelola_pelanggan/lihat_pelanggan');
 	}
 
 	public function hapus_pelanggan($id)
@@ -132,7 +132,7 @@ class Kelola_pelanggan extends CI_Controller {
 		$this->m_pelanggan->hapus_data_pelanggan($id);
 		$alert	= "<script>alert('Data berhasil dihapus')</script>";
 		$this->session->set_flashdata("pesan", $alert);
-		redirect('kelola_pelanggan/pelanggan');
+		redirect('kelola_pelanggan/lihat_pelanggan');
 	}
 
 	public function pelanggan_detail($id)

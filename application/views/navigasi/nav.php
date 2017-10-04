@@ -46,7 +46,7 @@
                         <a href="#"><span class="fa fa-users"></span> <span class="xn-text">Data Master</span></a>
                         <ul>
                             <li><a href="<?php echo base_url();?>kelola_lokasi_unit/lokasi_unit"><span class="fa fa-file"></span> Kelola Unit Lokasi</a></li>
-                            <li><a href="<?php echo base_url();?>Kelola_pelanggan/pelanggan"><span class="fa fa-file"></span> Kelola Pelanggan</a></li>
+                            <li><a href="<?php echo base_url();?>Kelola_pelanggan/lihat_pelanggan"><span class="fa fa-file"></span> Kelola Pelanggan</a></li>
                         </ul>
                     </li>
                     <li class="xn-openable">
@@ -69,7 +69,7 @@
                          <a href="#"><span class="fa fa-users"></span> <span class="xn-text">Data Master</span></a>
                          <ul>
                              <li><a href="<?php echo base_url();?>kelola_lokasi_unit/lokasi_unit"><span class="fa fa-file"></span> Kelola Unit Lokasi</a></li>
-                             <li><a href="<?php echo base_url();?>Kelola_pelanggan/pelanggan"><span class="fa fa-file"></span> Kelola Pelanggan</a></li>
+                             <li><a href="<?php echo base_url();?>Kelola_pelanggan/lihat_pelanggan"><span class="fa fa-file"></span> Kelola Pelanggan</a></li>
                          </ul>
                      </li>
                      <li class="xn-openable">
@@ -111,7 +111,7 @@
                         <a href="#"><span class="fa fa-users"></span> <span class="xn-text">Data Master</span></a>
                         <ul>
                             <li><a href="<?php echo base_url();?>kelola_lokasi_unit/lokasi_unit"><span class="fa fa-file"></span> Kelola Unit Lokasi</a></li>
-                            <li><a href="<?php echo base_url();?>Kelola_pelanggan/pelanggan"><span class="fa fa-file"></span> Kelola Pelanggan</a></li>
+                            <li><a href="<?php echo base_url();?>Kelola_pelanggan/lihat_pelanggan"><span class="fa fa-file"></span> Kelola Pelanggan</a></li>
                         </ul>
                     </li>
                     <li class="xn-openable">

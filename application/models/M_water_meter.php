@@ -75,17 +75,16 @@ class M_water_meter extends CI_Model {
 		return $query->result();
 	}
 
-	public function get_data_markers()
+	public function get_data_wm()
 	{
-		$query = $this->db->get('markers');
+		$query = $this->db->get('tb_water_meter');
 
 		return $query->result();
 	}
 
-
-	public function get_data_wm()
+	public function get_data_markers()
 	{
-		$query = $this->db->get('tb_water_meter');
+		$query = $this->db->get('markers');
 
 		return $query->result();
 	}
