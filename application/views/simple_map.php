@@ -1,6 +1,10 @@
 <!--script google map-->
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
-<script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_xaf_P_yJXPStiZdw41IP_4oB3JvkzBw&callback=initMap">
+</script>
+
+<script type="text/javascript">
+
 $(document).on('click','#clearmap',clearmap)
 .on('click','#simpandaftarkoordinatjembatan',simpandaftarkoordinatjembatan)
 .on('click','#hapusmarkerjembatan',hapusmarkerjembatan)

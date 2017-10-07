@@ -34,7 +34,7 @@ class Kelola_pelanggan extends CI_Controller {
 	{
 		$data = array(
 			'breadcrumb_1' 	=> 'Kelola Pelanggan',
-			'breadcrumb_2' 	=> anchor('kelola_pelanggan/pelanggan', 'Pelanggan'),
+			'breadcrumb_2' 	=> anchor('kelola_pelanggan/lihat_pelanggan', 'Pelanggan'),
 			'breadcrumb_3' 	=> anchor('kelola_pelanggan/tambah_pelanggan', 'Tambah Pelanggan'),
 			'panel_title' 	=> 'Tambah Data Pelanggan',
 			'jenis_bangunan'=> $this->m_pelanggan->get_jenis_bangunan(),
@@ -85,7 +85,7 @@ class Kelola_pelanggan extends CI_Controller {
 	{
 		$data = array(
 			'breadcrumb_1' 	=> 'Kelola Pelanggan',
-			'breadcrumb_2' 	=> anchor('kelola_pelanggan/pelanggan', 'Pelanggan'),
+			'breadcrumb_2' 	=> anchor('kelola_pelanggan/lihat_pelanggan', 'Pelanggan'),
 			'breadcrumb_3' 	=> anchor('kelola_pelanggan/edit_pelanggan/'.$id, 'Edit Pelanggan'),
 			'panel_title' 	=> 'Edit Data Pelanggan',
 			'jenis_bangunan'=> $this->m_pelanggan->get_jenis_bangunan(),
@@ -139,7 +139,7 @@ class Kelola_pelanggan extends CI_Controller {
 	{
 		$data = array(
 			'breadcrumb_1' 	=> 'Detail Pelanggan',
-			'breadcrumb_2' 	=> anchor('kelola_pelanggan/pelanggan', 'Pelanggan'),
+			'breadcrumb_2' 	=> anchor('kelola_pelanggan/lihat_pelanggan', 'Pelanggan'),
 			'breadcrumb_3' 	=> anchor('kelola_pelanggan/pelanggan_detail/'.$id, 'Detail Pelanggan'),
 			'panel_title' 	=> 'Lihat Data Detail Pelanggan',
 		);
@@ -155,7 +155,7 @@ class Kelola_pelanggan extends CI_Controller {
 	{
 		$data = array(
 			'breadcrumb_1' 	=> 'Kelola Pelanggan',
-			'breadcrumb_2' 	=> anchor('kelola_pelanggan/pelanggan', 'Pelanggan'),
+			'breadcrumb_2' 	=> anchor('kelola_pelanggan/lihat_pelanggan', 'Pelanggan'),
 			'breadcrumb_3' 	=> anchor('kelola_pelanggan/water_meter/'.$id, 'Water Meter Pelanggan'),
 			'panel_title' 	=> 'Data Water Meter Pelanggan',
 			'lokasi_unit' 	=> $this->m_lokasi_unit->lihat_data_lokunit(),
@@ -193,7 +193,7 @@ class Kelola_pelanggan extends CI_Controller {
 	{
 		$data = array(
 			'breadcrumb_1' 	=> 'Kelola Pelanggan',
-			'breadcrumb_2' 	=> anchor('kelola_pelanggan/pelanggan', 'Pelanggan'),
+			'breadcrumb_2' 	=> anchor('kelola_pelanggan/lihat_pelanggan', 'Pelanggan'),
 			'breadcrumb_3' 	=> anchor('kelola_pelanggan/tambah_koordinat/'.$id, 'Tambah - Ubah Koordinat'),
 			'panel_title' 	=> 'Tambah - Ubah Koordinat',
 			'panel_title_2' => 'Map',
@@ -201,14 +201,14 @@ class Kelola_pelanggan extends CI_Controller {
 
 		$id = $this->uri->segment(3);
 
-		$config['center'] 	= '-6.4814031, 107.7957904';
-		$config['zoom']			= 'auto';
-		$config['onclick'] = 'alert(\'You just clicked at: \' + event.latLng.lat() + \', \' + event.latLng.lng());';
+		//$config['center'] 	= '-6.4814031, 107.7957904';
+		//$config['zoom']			= 'auto';
+		//$config['onclick'] = 'createMarker_map({ map: map, position:event.latLng });';
+		//$config['onclick'] = 'alert(\'You just clicked at: \' + event.latLng.lat() + \', \' + event.latLng.lng());';
+		//$this->googlemaps->initialize($config);
 
-		$this->googlemaps->initialize($config);
 
-
-		$data['map'] 				= $this->googlemaps->create_map();
+		//$data['map'] 				= $this->googlemaps->create_map();
 		$data['pelanggan'] 	= $this->m_water_meter->water_meter_by($id);
 		$data['konten'] 		= 'pelanggan/v_tambah_koordinat';
 		$this->load->view('template_admin', $data);
@@ -218,7 +218,7 @@ class Kelola_pelanggan extends CI_Controller {
 	{
 		$data = array(
 			'breadcrumb_1' 	=> 'Kelola Pelanggan',
-			'breadcrumb_2' 	=> anchor('kelola_pelanggan/pelanggan', 'Pelanggan'),
+			'breadcrumb_2' 	=> anchor('kelola_pelanggan/lihat_pelanggan', 'Pelanggan'),
 			'breadcrumb_3' 	=> anchor('kelola_pelanggan/tambah_koordinat/'.$id, 'Tambah - Ubah Koordinat'),
 			'panel_title' 	=> 'Tambah - Ubah Koordinat',
 			'panel_title_2' => 'Map',
@@ -264,11 +264,23 @@ class Kelola_pelanggan extends CI_Controller {
 			'long'	=> $this->input->post('long'),
 		);
 
-		$id = $this->uri->segment(3);
-
-
 		$this->m_water_meter->edit_data_wm($data, $id);
 		$alert	= "<script>alert('Data berhasil disimpan')</script>";
+
+		$id = $this->uri->segment(3);
+		$this->session->set_flashdata("pesan", $alert);
+		redirect('kelola_pelanggan/pelanggan_detail/'.$id);
+	}
+
+	public function reset_koordinat($id) {
+		$data = array(
+			'lat'		=> null,
+			'long'	=> null,
+		);
+		$this->m_water_meter->edit_data_wm($data, $id);
+		$alert	= "<script>alert('Data berhasil direset')</script>";
+
+		$id = $this->uri->segment(3);
 		$this->session->set_flashdata("pesan", $alert);
 		redirect('kelola_pelanggan/pelanggan_detail/'.$id);
 	}
