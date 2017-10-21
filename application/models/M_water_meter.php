@@ -77,8 +77,19 @@ class M_water_meter extends CI_Model {
 
 	public function get_data_wm()
 	{
-		$query = $this->db->get('tb_water_meter');
+		$this->db->select('pl.`id_pelanggan`, pl.`nama_pelanggan`,
+				wm.`id_water_meter`, wm.`kode_asset`, wm.`lat`, wm.`long`,
+				lu.`kode_lokasi`, lu.`lokasi_unit`,
+				st.`id_status`, st.`status`,
+				kd.`id_kondisi`, kd.`kondisi`');
 
+		$this->db->from('tb_pelanggan AS pl');
+
+		$this->db->join('tb_water_meter AS wm', 'pl.`id_pelanggan` = wm.`id_pelanggan`', 'LEFT');
+		$this->db->join('tb_lokasi_unit AS lu', 'wm.`kode_lokasi` = lu.`kode_lokasi`', 'LEFT');
+		$this->db->join('tb_status AS st', 'wm.`id_status` = st.`id_status`', 'LEFT');
+		$this->db->join('tb_kondisi AS kd', 'wm.`id_kondisi` = kd.`id_kondisi`', 'LEFT');
+		$query = $this->db->get();
 		return $query->result();
 	}
 

@@ -303,19 +303,21 @@ class Kelola_pelanggan extends CI_Controller {
 		{
 			$lat		= $row->lat;
 			$lng		= $row->long;
-			$name		= $row->id_pelanggan;
+			$id 		= $row->id_pelanggan;
+			$name		= $row->nama_pelanggan;
+			$kode		= $row->kode_asset;
+
+			$link		= anchor('kelola_pelanggan/pelanggan_detail/'.$id, 'Selengkapnya');
 
 			$marker = array();
 			$marker['position'] = "$lat , $lng";
-			$marker['infowindow_content'] = "$name";
-			$marker['animation'] = 'BOUNCE';
+			$marker['infowindow_content'] = "Kode Aset : $kode </br> Nama Pelanggan : $name </br> $link ";
+			//$marker['animation'] = 'BOUNCE';
 			$marker['icon'] = base_url('assets/img/icons/restaurant_mexican.png');
 			$this->googlemaps->add_marker($marker);
 		}
 
 		$data['map'] = $this->googlemaps->create_map();
-
-
 		$data['konten']='pelanggan/v_sig_pelanggan';
 		$this->load->view('template_admin', $data);
 
