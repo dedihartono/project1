@@ -5,7 +5,71 @@
     <li class="active"><?php echo $breadcrumb_3 ;?></li>
 </ul>
 <!-- END BREADCRUMB -->
+<?php
+    $jabatan = [ 1 => "Super Admin", "Admin", "Direktur", "Subag Hublang", "Teknik"];
+    $hak_akses = $this->session->userdata('jabatan');
+    if($hak_akses == $jabatan[1] || $hak_akses == $jabatan[2]) {
+;?>
+<div class="page-content-wrap">
+    <div class="pelanggan">
+        <div class="col-md-12">
+          <!-- START DEFAULT DATATABLE -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="">
+                <h3 class="panel-title"><?php echo $panel_title;?></h3>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="col-md-12">
+                    <!-- CONTACT ITEM -->
 
+                        <div class="panel-body profile">
+                            <div class="profile-image">
+                                <img src="<?php echo base_url();?>assets/uploads/default.png">
+                            </div>
+                            <div class="profile-data">
+                                <div class="profile-data-name"><?php echo  $pelanggan->nama_pelanggan ;?></div>
+                                <div class="profile-data-title"><?php echo  $pelanggan->pekerjaan ;?></div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="contact-info">
+
+                              <div class="col-md-6">
+                                <h3>Info Umum</h3>
+                                <p><small>Nama</small><br><?php echo  $pelanggan->nama_pelanggan ;?></p>
+                                <p><small>Telephone</small><br><?php echo  $pelanggan->telepon ;?></p>
+                                <p><small>Pekerjaan</small><br><?php echo  $pelanggan->pekerjaan ;?></p>
+                                <p><small>Alamat</small><br><?php echo  $pelanggan->alamat ;?></p>
+                              </div>
+
+                              <div class="col-md-6">
+                                <h3>Info Tempat</h3>
+                                <p><small>Luas Tanah</small><br><?php echo  $pelanggan->luas_tanah ;?></p>
+                                <p><small>Luas Bangunan</small><br><?php echo  $pelanggan->luas_bangunan ;?></p>
+                                <p><small>Jenis Bangunan</small><br><?php echo  $pelanggan->jenis_bangunan ;?></p>
+                                <p><small>Status Rumah</small><br><?php echo  $pelanggan->status_rumah ;?></p>
+                                <p><small>Peruntukan</small><br><?php echo  $pelanggan->peruntukan ;?></p>
+                                <p><small>Jumlah Penghuni</small><br><?php echo  $pelanggan->jumlah_penghuni ;?></p>
+                              </div>
+
+                            </div>
+                          </div>
+              </div>
+            </div>
+            <!-- END DEFAULT DATATABLE -->
+        </div>
+      </div>
+    </div>
+</div>
+<?php } ;?>
+
+<?php
+    $jabatan = [ 1 => "Super Admin", "Admin", "Direktur", "Subag Hublang", "Teknik"];
+    $hak_akses = $this->session->userdata('jabatan');
+    if($hak_akses == $jabatan[5]) {
+;?>
 <div class="page-content-wrap">
     <div class="pelanggan">
         <div class="col-md-12">
@@ -130,3 +194,4 @@
       </div>
     </div>
   </div>
+<?php } ;?>

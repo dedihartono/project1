@@ -133,7 +133,8 @@
                  <li class="xn-openable">
                      <a href="#"><span class="fa fa-photo"></span> <span class="xn-text">Pemetaan</span></a>
                      <ul>
-                         <li><a href="#"><span class="fa fa-photo"></span> SIG Pelanggan</a></li>
+                        <li><a href="<?php echo base_url();?>Kelola_pelanggan/lihat_pelanggan"><span class="fa fa-file"></span> Kelola Pelanggan</a></li>
+                        <li><a href="<?php echo base_url();?>kelola_pelanggan/sig_pelanggan"><span class="fa fa-photo"></span> SIG Pelanggan</a></li>
                      </ul>
                  </li>
                <?php } ;?>
